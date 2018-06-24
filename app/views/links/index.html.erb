@@ -1,0 +1,27 @@
+<div class = "container">
+	<h1>XYZ url shortener</h1>
+	<div class="jumbotron">
+		<%= form_for(:link, url: create_path, remote: true) do |f| %>
+			<%= f.text_field :url, class: "form-control", placeholder: "Enter URL"%>
+			<br>
+			<%= f.submit "Submit", class: "btn btn-info"%>
+		<% end %>
+	</div>
+	<table class="table">
+		<th>
+			<td>Original URL</td>
+			<td>Created at</td>
+			<td>Shortened URL</td>
+			<td>Clicks</td>
+		</th>
+		<% @links.each do |l| %>
+			<tr>
+				<td></td>
+				<td><%= l.url %></td>
+				<td><%= l.created_at.strftime("%d/%m/%y") %></td>
+				<td><%= link_to root_url+l.short, root_url+l.short, target: "_blank" %></td>
+				<td><%= l.count %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
