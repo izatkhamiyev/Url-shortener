@@ -1,2 +1,2 @@
 $(".alert").remove();
-$("tr").prepend("<tr><td><%= @link.url %></td></tr>");
+$("tbody").prepend("<%= escape_javascript(render(@link)) %>");

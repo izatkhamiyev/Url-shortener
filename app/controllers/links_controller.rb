@@ -24,7 +24,9 @@ class LinksController < ApplicationController
   	l.update_attribute(:count, l.count + 1)
  	redirect_to l.url
   end
+  
   private 
+
   def link_params
   	params.require(:link).permit(:url)
   end

@@ -14,14 +14,9 @@
 			<td>Shortened URL</td>
 			<td>Clicks</td>
 		</th>
-		<% @links.each do |l| %>
-			<tr>
-				<td></td>
-				<td><%= l.url %></td>
-				<td><%= l.created_at.strftime("%d/%m/%y") %></td>
-				<td><%= link_to root_url+l.short, root_url+l.short, target: "_blank" %></td>
-				<td><%= l.count %></td>
-			</tr>
-		<% end %>
+		<tbody>
+			<%= render @links %>
+		</tbody>
+				
 	</table>
 </div>
